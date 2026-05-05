@@ -844,6 +844,146 @@
       font-size: 17px;
     }
 
+    .bm-rebate-hint {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #5a6772;
+      font-weight: 760;
+    }
+
+    .bm-rebate-foot {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #e8eef4;
+    }
+
+    .bm-text-link {
+      display: inline;
+      margin: 0 2px;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: var(--blue);
+      font: inherit;
+      font-size: inherit;
+      font-weight: 850;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      vertical-align: baseline;
+    }
+
+    .bm-text-link:hover {
+      color: var(--blue-dark);
+    }
+
+    /* 商务经理弹窗 */
+    .bm-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .bm-modal.is-open {
+      display: flex;
+    }
+
+    .bm-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 19, 24, .48);
+      cursor: pointer;
+    }
+
+    .bm-modal-card {
+      position: relative;
+      z-index: 1;
+      width: min(440px, 100%);
+      max-height: min(92vh, 620px);
+      overflow: auto;
+      padding: 22px 22px 20px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 56px rgba(16, 19, 24, .16);
+    }
+
+    .bm-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    .bm-modal-close:hover {
+      background: #eef2f6;
+      color: var(--ink);
+    }
+
+    .bm-modal-card h3 {
+      margin: 0 38px 10px 0;
+      font-size: 18px;
+      font-weight: 950;
+      color: var(--ink);
+    }
+
+    .bm-modal-lead {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 750;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .bm-modal-card .bm-qr-zone {
+      margin-top: 18px;
+    }
+
+    .bm-qr-zone {
+      text-align: center;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .bm-qr-zone img {
+      width: 220px;
+      height: 220px;
+      border-radius: 10px;
+      vertical-align: middle;
+      border: 1px solid #edf2f6;
+      background: #fafafa;
+    }
+
+    .bm-qr-help {
+      display: block;
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    body.bm-modal-lock {
+      overflow: hidden;
+    }
+
     .panel-head p {
       margin: 0;
       color: var(--muted);
@@ -1385,6 +1525,10 @@
         padding: 16px 12px 28px;
       }
 
+      .panel-head {
+        flex-wrap: wrap;
+      }
+
       .summary-grid,
       .link-main,
       .reward-grid {
@@ -1608,7 +1752,7 @@
                 </span>
                 <div class="link-row">
                   <div class="link-field">
-                    <input class="link-input" id="promoUrl" value="https://roxybrowser.cn/invite/11219ESA" readonly aria-label="推广链接" title="点击复制" />
+                    <input class="link-input" id="promoUrl" value="https://roxybrowser.cn/invite/k7mp2x" readonly aria-label="推广链接" title="点击复制" />
                     <span class="copy-toast" id="copyLinkToast" role="status" aria-live="polite">复制成功</span>
                   </div>
                   <button class="copy-btn" id="copyLink" type="button" aria-label="复制推广链接">
@@ -1627,7 +1771,7 @@
                 </span>
                 <div class="link-row">
                   <div class="link-field">
-                    <input class="link-input" id="inviteCodeInput" value="11219ESA" readonly aria-label="邀请码" title="点击复制" />
+                    <input class="link-input" id="inviteCodeInput" value="k7mp2x" readonly aria-label="邀请码" title="点击复制" />
                     <span class="copy-toast" id="copyCodeToast" role="status" aria-live="polite">复制成功</span>
                   </div>
                   <button class="copy-btn" id="copyCode" type="button" aria-label="复制邀请码">
@@ -1637,6 +1781,7 @@
                 </div>
               </div>
             </div>
+
             <div class="reward-grid">
               <div class="reward-col">
                 <span class="reward-title">您将获得:</span>
@@ -1681,6 +1826,12 @@
                   </svg>
                 </div>
               </div>
+            </div>
+
+            <div class="bm-rebate-foot" role="note">
+              <p class="bm-rebate-hint">
+                希望获取更高返现比例？请 <button type="button" class="bm-text-link bm-open-modal" aria-haspopup="dialog" aria-controls="bmModal" aria-expanded="false">添加商务经理</button> 最高获得30%返现。
+              </p>
             </div>
 
           </div>
@@ -1877,6 +2028,19 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
   </button>
 
+  <div class="bm-modal" id="bmModal" role="dialog" aria-modal="true" aria-labelledby="bmModalTitle" aria-hidden="true">
+    <div class="bm-modal-backdrop" id="bmBackdrop" aria-hidden="true"></div>
+    <div class="bm-modal-card">
+      <button type="button" class="bm-modal-close" id="bmCloseBtn" aria-label="关闭">&times;</button>
+      <h3 id="bmModalTitle">添加商务经理</h3>
+      <p class="bm-modal-lead">请使用微信扫描二维码，专属经理将协助您沟通返现比例等事项。</p>
+      <div class="bm-qr-zone">
+        <img id="bmQrImg" src="" width="220" height="220" decoding="async" alt="商务经理联系方式二维码" data-qr-src="" />
+        <span class="bm-qr-help">请使用微信扫一扫 · 实际二维码由运营配置替换</span>
+      </div>
+    </div>
+  </div>
+
   <script>
     const promoUrl = document.getElementById("promoUrl");
     const inviteCodeInput = document.getElementById("inviteCodeInput");
@@ -1928,7 +2092,7 @@
       const BANNER_CDN_BASE = "https://roxybrowser.com/static/promo/zh";
 
       function trackingHref() {
-        const code = (inviteCodeInput.value || "").trim() || "11219ESA";
+        const code = (inviteCodeInput.value || "").trim() || "k7mp2x";
         return `https://roxybrowser.cn?code=${encodeURIComponent(code)}`;
       }
 
@@ -1989,6 +2153,59 @@
       });
 
       refresh();
+    })();
+
+    (function initBizManagerModal() {
+      const modal = document.getElementById("bmModal");
+      const openBtns = document.querySelectorAll(".bm-open-modal");
+      const closeBtn = document.getElementById("bmCloseBtn");
+      const backdrop = document.getElementById("bmBackdrop");
+      const qrImg = document.getElementById("bmQrImg");
+      if (!modal || !qrImg || !openBtns.length) return;
+
+      const payload = "https://roxybrowser.cn/contact/business";
+      const dynamicQr =
+        `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=2&ecc=M&data=${encodeURIComponent(payload)}`;
+
+      let prevFocus = null;
+      let qrReady = false;
+
+      function resolveQrSrc() {
+        const custom = (qrImg.getAttribute("data-qr-src") || "").trim();
+        return custom || dynamicQr;
+      }
+
+      function open() {
+        if (!qrReady) {
+          qrImg.src = resolveQrSrc();
+          qrReady = true;
+        }
+        prevFocus = document.activeElement;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("bm-modal-lock");
+        openBtns.forEach((btn) => btn.setAttribute("aria-expanded", "true"));
+        (closeBtn || openBtns[0]).focus();
+      }
+
+      function close() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("bm-modal-lock");
+        openBtns.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+        if (prevFocus && typeof prevFocus.focus === "function") {
+          prevFocus.focus();
+        }
+      }
+
+      openBtns.forEach((btn) => btn.addEventListener("click", open));
+      closeBtn?.addEventListener("click", close);
+      backdrop?.addEventListener("click", close);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          close();
+        }
+      });
     })();
   </script>
 </body>
